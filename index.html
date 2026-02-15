@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatmev — Возрождаем историю через моду</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo img {
+            height: 45px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #cccccc;
+            font-weight: 400;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        .nav-links a:hover {
+            color: #c0a080;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        section {
+            scroll-margin-top: 100px;
+        }
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero h1 span {
+            color: #c0a080;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #aaaaaa;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+        .btn {
+            display: inline-block;
+            padding: 16px 48px;
+            background: transparent;
+            border: 1px solid #c0a080;
+            color: #c0a080;
+            text-decoration: none;
+            font-weight: 500;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #c0a080;
+            color: #0a0a0a;
+        }
+        .about {
+            padding: 80px 0;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+        .section-title span {
+            color: #c0a080;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .about-text p {
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 300;
+        }
+        .values {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .value-item i {
+            color: #c0a080;
+            font-size: 20px;
+        }
+        .lookbook {
+            padding: 80px 0;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .grid-item {
+            aspect-ratio: 3/4;
+            background-color: #1a1a1a;
+            display: flex;
+            align-items: flex-end;
+            border: 1px solid #333;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            background-size: cover;
+            background-position: center;
+        }
+        .grid-item:hover {
+            transform: scale(1.02);
+            border-color: #c0a080;
+        }
+        .grid-item p {
+            width: 100%;
+            background: rgba(10, 10, 10, 0.8);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        footer {
+            padding: 60px 0;
+            text-align: center;
+        }
+       /* КОНТАКТЫ */
+#contact .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #888;
+    transition: color 0.3s;
+    gap: 8px;
+}
+
+.social-link i {
+    font-size: 32px;
+}
+
+.social-link span {
+    font-size: 14px;
+}
+
+.social-link:hover {
+    color: #c0a080;
+}
+
+.footer-text {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.footer-text span {
+    color: #c0a080;
+}
+        
+        /* МОБИЛЬНАЯ ВЕРСИЯ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                display: flex !important;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 14px;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+                text-align: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            h3 {
+                font-size: 20px !important;
+                text-align: center;
+                margin: 30px 0 15px !important;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="images/логотип.png" alt="Fatmev">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#collection">Коллекция</a></li>
+                    <li><a href="#about">О бренде</a></li>
+                    <li><a href="#lookbook">Lookbook</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>FAT<span>MEV</span></h1>
+            <p>Возрождаем историю с помощью моды</p>
+            <a href="https://t.me/fatmevv" target="_blank" class="btn">ПЕРЕЙТИ В ТЕЛЕГРАМ</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title"><span>/</span> О бренде</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Fatmev - это не просто футболки и худи, это искусства где Минимализм, История и Культура объединяются в одно целое!</p>
+                    <p>Мы создаем вещи которые носят историю и характер по сей день</p>
+                </div>
+                <div class="values">
+                    <div class="value-item"><i class="fas fa-check-circle"></i> <span>Качественные материалы</span></div>
+                    <div class="value-item"><i class="fas fa-check-circle"></i> <span>Уникальный дизайн</span></div>
+                    <div class="value-item"><i class="fas fa-check-circle"></i> <span>Ограниченные выпуски</span></div>
+                    <div class="value-item"><i class="fas fa-check-circle"></i> <span>Доставка по всей стране</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="collection" class="lookbook">
+        <div class="container">
+            <h2 class="section-title"><span>/</span> Коллекция</h2>
+            <p style="color: #aaa; margin-bottom: 20px;">Чёрный. Белый. Стильный. Культурный.</p>
+
+            <!-- Группа: Chakan white -->
+            <h3 style="color: #c0a080; margin: 40px 0 20px; font-size: 24px;">Chakan white</h3>
+            <div class="grid">
+                <div class="grid-item" style="background-image: url('images/1.PNG');"></div>
+                <div class="grid-item" style="background-image: url('images/2.jpg');"></div>
+            </div>
+
+            <!-- Группа: Chakan black -->
+            <h3 style="color: #c0a080; margin: 40px 0 20px; font-size: 24px;">Chakan black</h3>
+            <div class="grid">
+                <div class="grid-item" style="background-image: url('images/3.PNG');"></div>
+                <div class="grid-item" style="background-image: url('images/4.JPG');"></div>
+            </div>
+
+            <!-- Группа: Choy Piyola -->
+            <h3 style="color: #c0a080; margin: 40px 0 20px; font-size: 24px;">Choy Piyola</h3>
+            <div class="grid">
+                <div class="grid-item" style="background-image: url('images/5.PNG');"></div>
+                <div class="grid-item" style="background-image: url('images/6.jpg');"></div>
+            </div>
+
+            <!-- Группа: Ismail Somoni -->
+            <h3 style="color: #c0a080; margin: 40px 0 20px; font-size: 24px;">Ismail Somoni</h3>
+            <div class="grid">
+                <div class="grid-item" style="background-image: url('images/7.jpg');"></div>
+                <div class="grid-item" style="background-image: url('images/8.jpg');"></div>
+            </div>
+
+            <!-- Группа: Sogdiana girl -->
+            <h3 style="color: #c0a080; margin: 40px 0 20px; font-size: 24px;">Sogdiana girl</h3>
+            <div class="grid">
+                <div class="grid-item" style="background-image: url('images/9.jpg');"></div>
+                <div class="grid-item" style="background-image: url('images/10.jpg');"></div>
+            </div>
+
+            <!-- Группа: Tajik girl DJ -->
+            <h3 style="color: #c0a080; margin: 40px 0 20px; font-size: 24px;">Sogdiana girl</h3>
+            <div class="grid">
+                <div class="grid-item" style="background-image: url('images/11.PNG');"></div>
+                <div class="grid-item" style="background-image: url('images/12.jpg');"></div>
+            </div>
+<!-- Новая группа: Женские футболки (3 шт) -->
+<h3 style="color: #c0a080; margin: 40px 0 20px; font-size: 24px;"></h3>
+<div class="grid">
+    <div class="grid-item" style="background-image: url('images/13.jpg');">
+         <p style="width: 100%; background: rgba(10, 10, 10, 0.8); color: #c0a080; padding: 12px; text-align: center; font-size: 20px; letter-spacing: 1px;">Ibn Sina</p>
+    </div>
+    <div class="grid-item" style="background-image: url('images/14.jpg');">
+        <p style="width: 100%; background: rgba(10, 10, 10, 0.8); color: #c0a080; padding: 12px; text-align: center; font-size: 20px; letter-spacing: 1px;">Doira Duhtar</p>
+    </div>
+    <div class="grid-item" style="background-image: url('images/15.jpg');">
+         <p style="width: 100%; background: rgba(10, 10, 10, 0.8); color: #c0a080; padding: 12px; text-align: center; font-size: 20px; letter-spacing: 1px;">Badahshon</p>
+    </div>
+</div>
+        </div>
+    </section>
+<footer id="contact">
+    <div class="container">
+        <h2 class="section-title"><span>/</span> Контакты</h2>
+        
+        <div class="social-links">
+            <!-- Telegram (уже есть) -->
+            <a href="https://t.me/fatmevv" target="_blank" class="social-link">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </a>
+            
+            <!-- Instagram (новый) -->
+            <a href="https://instagram.com/fatmevmerch" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            
+            <!-- TikTok (новый) -->
+            <a href="https://tiktok.com/@fatmev.merch" target="_blank" class="social-link">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            
+        </div>
+        
+        <div class="footer-text">
+            <p>© 2025 FATMEV</p>
+            <p><span>ЗАКАЗЫ: @Fatmevmerch</span></p>
+        </div>
+    </div>
+</footer>
+    
+</body>
+</html>
